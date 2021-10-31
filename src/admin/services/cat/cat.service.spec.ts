@@ -1,6 +1,6 @@
-import { getModelToken } from "@nestjs/mongoose";
 import { TestingModule, Test } from "@nestjs/testing";
-import { Cat } from "@src/admin/models/cat.model";
+import { DatabaseModule } from "@src/database/database.module";
+import { closeInMongodConnection, rootMongooseTestModule } from "@test/mongo-database-test.module";
 import { CatService } from "..";
 
 describe('CatService', () => {
@@ -8,12 +8,12 @@ describe('CatService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [
+        rootMongooseTestModule(),
+        DatabaseModule
+      ],
       providers: [
         CatService,
-        {
-          provide: getModelToken('Cat'),
-          useValue: Cat,
-        },
       ],
     }).compile();
 
@@ -22,5 +22,9 @@ describe('CatService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  afterAll(async () => {
+    await closeInMongodConnection();
   });
 });
