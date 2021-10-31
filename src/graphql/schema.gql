@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cat {
+  _id: ID!
+  age: Int!
+  breed: String!
+  color: Color
+  colors: [Color!]
+  name: String!
+}
+
+type Color {
+  _id: ID!
+  title: String!
+}
+
+input CreateCatInput {
+  age: Int!
+  breed: String!
+  name: String!
+}
+
+input CreateColorInput {
+  title: String!
+}
+
+type Mutation {
+  createCat(input: CreateCatInput!): Cat!
+  createColor(input: CreateColorInput!): Color!
+}
+
+type Query {
+  cat(_id: ID!): Cat!
+  cats: [Cat!]!
+  color(_id: ID!): Color!
+  colors: [Color!]!
+}
