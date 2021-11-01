@@ -4,24 +4,10 @@ import { Module } from '@nestjs/common';
 import { DatabaseModule } from '@src/database/database.module';
 // Services.
 import { CatService, ColorService } from './services';
-// Resolvers.
-import { CatResolver, ColorResolver } from './resolvers';
 
 @Module({
-  imports: [
-    DatabaseModule
-  ],
-  providers: [
-    CatService,
-    ColorService,
-    CatResolver,
-    ColorResolver,
-  ],
-  exports: [
-    CatService,
-    ColorService,
-    CatResolver,
-    ColorResolver,
-  ]
+  imports: [DatabaseModule],
+  providers: [CatService, ColorService],
+  exports: [CatService, ColorService],
 })
 export class AdminModule {}

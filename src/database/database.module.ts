@@ -1,7 +1,7 @@
-import { Module } from "@nestjs/common";
-import { MongooseModule } from "@nestjs/mongoose";
-import { Cat, CatSchema } from "@src/admin/models/cat.model";
-import { Color, ColorSchema } from "@src/admin/models/color.model";
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Cat, CatSchema } from '@src/admin/models/cat.model';
+import { Color, ColorSchema } from '@src/admin/models/color.model';
 
 @Module({
   imports: [

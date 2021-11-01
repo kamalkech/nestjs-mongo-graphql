@@ -1,12 +1,12 @@
-import { Args, ID, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { CreateCatInput } from "@src/admin/dto/cat.dto";
-import { Cat } from "@src/admin/models/cat.model";
-import { CatService } from "@src/admin/services";
+import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { CreateCatInput } from '@src/admin/dto/cat.dto';
+import { Cat } from '@src/admin/models/cat.model';
+import { CatService } from '@src/admin/services';
 import { Schema as MongooseSchema } from 'mongoose';
 
 @Resolver()
 export class CatResolver {
-  constructor(private catService: CatService) { }
+  constructor(private catService: CatService) {}
 
   @Query(() => Cat)
   async cat(
@@ -17,9 +17,8 @@ export class CatResolver {
   }
 
   @Query(() => [Cat])
-  async cats(
-    // @Args('filters', { nullable: true }) filters?: ListPersonInput,
-  ): Promise<Cat[]> {
+  async cats(): // @Args('filters', { nullable: true }) filters?: ListPersonInput,
+  Promise<Cat[]> {
     return await this.catService.findAll();
   }
 

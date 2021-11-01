@@ -1,6 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DatabaseModule } from '@src/database/database.module';
-import { rootMongooseTestModule, closeInMongodConnection } from '@test/mongo-database-test.module';
+import {
+  rootMongooseTestModule,
+  closeInMongodConnection,
+} from '@test/mongo-database-test.module';
 import { ColorService } from './color.service';
 
 describe('ColorService', () => {
@@ -8,10 +11,7 @@ describe('ColorService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [
-        rootMongooseTestModule(),
-        DatabaseModule
-      ],
+      imports: [rootMongooseTestModule(), DatabaseModule],
       providers: [ColorService],
     }).compile();
 

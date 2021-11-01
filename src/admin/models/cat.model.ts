@@ -25,16 +25,16 @@ export class Cat extends Document {
   @Field(() => Color, { nullable: true })
   @Prop({
     type: MongooseSchema.Types.ObjectId,
-    ref: Color.name
+    ref: Color.name,
   })
-  color: Color
+  color: Color;
 
   @Field(() => [Color], { nullable: true })
   @Prop({
     type: [MongooseSchema.Types.ObjectId],
-    ref: Color.name
+    ref: Color.name,
   })
-  colors:  Color[]
+  colors: Color[];
 }
 
 export type CatDocument = Cat & Document;

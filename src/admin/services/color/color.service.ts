@@ -7,7 +7,7 @@ import { Model, Schema as MongooseSchema } from 'mongoose';
 @Injectable()
 export class ColorService {
   constructor(
-    @InjectModel(Color.name) private readonly colorModel: Model<ColorDocument>
+    @InjectModel(Color.name) private readonly colorModel: Model<ColorDocument>,
   ) {}
 
   async create(input: CreateColorInput): Promise<Color> {
@@ -16,9 +16,7 @@ export class ColorService {
   }
 
   async getById(_id: MongooseSchema.Types.ObjectId): Promise<Color> {
-    const cat = await this.colorModel
-      .findById(_id)
-      .exec();
+    const cat = await this.colorModel.findById(_id).exec();
 
     if (!cat) {
       throw new HttpException('Color does not existe', HttpStatus.NO_CONTENT);
@@ -28,8 +26,6 @@ export class ColorService {
   }
 
   async findAll(): Promise<Color[]> {
-    return await this.colorModel
-      .find()
-      .exec();
+    return await this.colorModel.find().exec();
   }
 }

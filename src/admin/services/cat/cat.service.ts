@@ -1,13 +1,13 @@
-import { Injectable, HttpException, HttpStatus } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
-import { CreateCatInput } from "@src/admin/dto/cat.dto";
-import { Cat, CatDocument } from "@src/admin/models/cat.model";
-import { Model, Schema as MongooseSchema } from "mongoose";
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { CreateCatInput } from '@src/admin/dto/cat.dto';
+import { Cat, CatDocument } from '@src/admin/models/cat.model';
+import { Model, Schema as MongooseSchema } from 'mongoose';
 
 @Injectable()
 export class CatService {
   constructor(
-    @InjectModel(Cat.name) private readonly catModel: Model<CatDocument>
+    @InjectModel(Cat.name) private readonly catModel: Model<CatDocument>,
   ) {}
 
   async create(input: CreateCatInput): Promise<Cat> {
@@ -29,9 +29,6 @@ export class CatService {
   }
 
   async findAll(): Promise<Cat[]> {
-    return await this.catModel
-      .find()
-      .populate(['color', 'colors'])
-      .exec();
+    return await this.catModel.find().populate(['color', 'colors']).exec();
   }
 }
