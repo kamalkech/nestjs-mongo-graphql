@@ -4,9 +4,9 @@ import { Document, Schema as MongooseSchema } from 'mongoose';
 
 @ObjectType()
 @Schema()
-export class Color {
+export class Color extends Document {
   @Field(() => ID)
-  @Prop()
+  @Prop({ auto: true })
   _id: MongooseSchema.Types.ObjectId;
 
   @Field(() => String)

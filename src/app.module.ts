@@ -36,6 +36,10 @@ import { ResolversModule } from './resolvers/resolvers.module';
             credentials: true,
             origin: true,
           },
+          installSubscriptionHandlers: true,
+          // subscriptions: {
+          //   'graphql-ws': true
+          // },
         };
       },
       inject: [ConfigService],

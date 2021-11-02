@@ -37,3 +37,7 @@ type Query {
   color(_id: ID!): Color!
   colors: [Color!]!
 }
+
+type Subscription {
+  colorAdded: Color!
+}

@@ -11,8 +11,8 @@ export class ColorService {
   ) {}
 
   async create(input: CreateColorInput): Promise<Color> {
-    const createdCat = new this.colorModel(input);
-    return createdCat.save();
+    const createdColor = new this.colorModel(input);
+    return createdColor.save();
   }
 
   async getById(_id: MongooseSchema.Types.ObjectId): Promise<Color> {
