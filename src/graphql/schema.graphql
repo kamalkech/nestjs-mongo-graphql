@@ -29,6 +29,7 @@ input CreateColorInput {
 type Mutation {
   createCat(input: CreateCatInput!): Cat!
   createColor(input: CreateColorInput!): Color!
+  uploadMedia(file: Upload!): Boolean!
 }
 
 type Query {
@@ -37,3 +38,6 @@ type Query {
   color(_id: ID!): Color!
   colors: [Color!]!
 }
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

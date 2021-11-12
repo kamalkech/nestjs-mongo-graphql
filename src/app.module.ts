@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DatabaseModule } from './database/database.module';
 import { ResolversModule } from './resolvers/resolvers.module';
+import { MediaModule } from './media/media.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { ResolversModule } from './resolvers/resolvers.module';
     AdminModule,
     DatabaseModule,
     ResolversModule,
+    MediaModule,
   ],
 })
 export class AppModule {}
