@@ -1,0 +1,7 @@
+name: nestjs-mongo-graphql
+recipe: mean
+config:
+  webroot: .
+  port: '3000'
+  node: 14
+  command: npm run start:dev

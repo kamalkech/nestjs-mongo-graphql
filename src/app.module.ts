@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DatabaseModule } from './database/database.module';
 import { ResolversModule } from './resolvers/resolvers.module';
+import { AppController } from './app/app.controller';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { ResolversModule } from './resolvers/resolvers.module';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
         return {
-          uri: configService.get<string>('MONGODB_URI'),
+          uri: 'mongodb://database:27017/nestjs-mongo-graphql', //configService.get<string>('MONGODB_URI'),
           useNewUrlParser: true,
           useUnifiedTopology: true,
         };
@@ -45,5 +46,6 @@ import { ResolversModule } from './resolvers/resolvers.module';
     DatabaseModule,
     ResolversModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
