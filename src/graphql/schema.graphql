@@ -19,6 +19,7 @@ type Color {
 input CreateCatInput {
   age: Int!
   breed: String!
+  colors: [ID!]!
   name: String!
 }
 

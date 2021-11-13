@@ -6,7 +6,7 @@ import { Document, Schema as MongooseSchema } from 'mongoose';
 @Schema()
 export class Color {
   @Field(() => ID)
-  @Prop()
+  @Prop({ auto: true })
   _id: MongooseSchema.Types.ObjectId;
 
   @Field(() => String)

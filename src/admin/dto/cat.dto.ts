@@ -1,4 +1,5 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { Field, ID, InputType, Int } from '@nestjs/graphql';
+import { Schema as MongooseSchema } from 'mongoose';
 
 @InputType()
 export class CreateCatInput {
@@ -10,4 +11,7 @@ export class CreateCatInput {
 
   @Field(() => String)
   breed: string;
+
+  @Field(() => [ID])
+  colors: MongooseSchema.Types.ObjectId;
 }
